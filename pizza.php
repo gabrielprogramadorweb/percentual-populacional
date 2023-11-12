@@ -33,16 +33,16 @@ include '../atividade-2/includes/nav.php';
         </thead>
         <tbody>
           <?php
-          $sql = "SELECT * FROM dados ORDER BY populacao DESC"; // Modificado para ordenar pela população em ordem decrescente
-          $busca = mysqli_query($conexao,$sql);
+          $sql = 'SELECT * FROM dados ORDER BY populacao DESC'; // Modificado para ordenar pela população em ordem decrescente
+$busca = mysqli_query($conexao, $sql);
 
-          while ($dados = mysqli_fetch_array($busca)) {
-            $cidade = $dados['cidade'];
-            $populacao = number_format($dados['populacao'], 0, '', '.'); // Formata o número com um ponto como divisor de milhares
-          ?>
+while ($dados = mysqli_fetch_array($busca)) {
+    $cidade = $dados['cidade'];
+    $populacao = number_format($dados['populacao'], 0, '', '.'); // Formata o número com um ponto como divisor de milhares
+    ?>
             <tr>
-              <td><?php echo $cidade ?></td>
-              <td><?php echo $populacao ?></td>
+              <td><?php echo $cidade; ?></td>
+              <td><?php echo $populacao; ?></td>
             </tr>
           <?php } ?>
         </tbody>
@@ -51,10 +51,7 @@ include '../atividade-2/includes/nav.php';
   </div>
 </div>
 
-
-  <!-- Optional JavaScript; choose one of the two! -->
-  <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
   <!-- Google Charts JavaScript -->
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -66,14 +63,14 @@ include '../atividade-2/includes/nav.php';
     var data = google.visualization.arrayToDataTable([
       ["Cidade", "População"],
       <?php
-      $sql = "SELECT * FROM dados";
-      $busca = mysqli_query($conexao, $sql);
+      $sql = 'SELECT * FROM dados';
+$busca = mysqli_query($conexao, $sql);
 
-      while ($dados = mysqli_fetch_array($busca)) {
-        $cidade = $dados['cidade'];
-        $populacao = $dados['populacao'];
-      ?>
-        ["<?php echo $cidade ?>", <?php echo $populacao ?>],
+while ($dados = mysqli_fetch_array($busca)) {
+    $cidade = $dados['cidade'];
+    $populacao = $dados['populacao'];
+    ?>
+        ["<?php echo $cidade; ?>", <?php echo $populacao; ?>],
       <?php } ?>
     ]);
 

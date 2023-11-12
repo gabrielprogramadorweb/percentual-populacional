@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@300;400&display=swap");
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  font-family: "Sora", sans-serif;
 }
 
-.content {
+.content  {
   flex: 1;
+  font-family: "Sora", sans-serif;
 }
-.link h7 {
-    background-color: black;
+  h1, p {
+  
+  font-family: "Sora", sans-serif;
 }
+
