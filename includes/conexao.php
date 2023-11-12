@@ -1,20 +1,18 @@
 <?php
 
-// Database credentials
-$servername = "localhost";
-$username = "root";
-$password = "";
-$database = "dados";
+// Credenciais do banco de dados
+$servername = 'localhost'; // Nome do servidor
+$username = 'root'; // Nome de usuário
+$password = ''; // Senha
+$database = 'dados'; // Nome do banco de dados
 
-// Create connection
+// Criação da conexão
 $conexao = new mysqli($servername, $username, $password, $database);
 
-// Check connection
+// Verifica a conexão
 if ($conexao->connect_error) {
-    die("Connection failed: " . $conexao->connect_error);
+    exit('Falha na conexão: '.$conexao->connect_error);
 }
 
-// Set character set to UTF-8 (opcional, ajuste conforme necessário)
-$conexao->set_charset("utf8");
-
-?>
+// Define o conjunto de caracteres para UTF-8 (opcional, ajuste conforme necessário)
+$conexao->set_charset('utf8');

@@ -2,10 +2,10 @@
 include '../atividade-2/includes/conexao.php';
 
 // Verifica se o formulário de edição foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cidade"])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['cidade'])) {
     // Obtém os dados do formulário
-    $cidadeEditar = $_POST["cidade"];
-    $novaPopulacao = $_POST["novaPopulacao"];
+    $cidadeEditar = $_POST['cidade'];
+    $novaPopulacao = $_POST['novaPopulacao'];
 
     // Atualiza a população no banco de dados
     $sqlUpdate = "UPDATE dados SET populacao = $novaPopulacao WHERE cidade = '$cidadeEditar'";
@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cidade"])) {
 }
 
 // Verifica se o formulário de inserção foi submetido
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset($_POST["novaPopulacao"])) {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['novaCidade']) && isset($_POST['novaPopulacao'])) {
     // Obtém os dados do formulário de inserção
-    $novaCidade = $_POST["novaCidade"];
-    $novaPopulacao = $_POST["novaPopulacao"];
+    $novaCidade = $_POST['novaCidade'];
+    $novaPopulacao = $_POST['novaPopulacao'];
 
     // Insere a nova cidade e população no banco de dados
     $sqlInsert = "INSERT INTO dados (cidade, populacao) VALUES ('$novaCidade', $novaPopulacao)";
@@ -30,6 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="../atividade-2/imagens/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../atividade-2/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -55,24 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset
                     </thead>
                     <tbody>
                     <?php
-                    $sql = "SELECT * FROM dados ORDER BY populacao DESC";
-                    $busca = mysqli_query($conexao, $sql);
+                    $sql = 'SELECT * FROM dados ORDER BY populacao DESC';
+$busca = mysqli_query($conexao, $sql);
 
-                    while ($dados = mysqli_fetch_array($busca)) {
-                        $cidade = $dados['cidade'];
-                        $populacao = number_format($dados['populacao'], 0, '', '.');
+while ($dados = mysqli_fetch_array($busca)) {
+    $cidade = $dados['cidade'];
+    $populacao = number_format($dados['populacao'], 0, '', '.');
 
-                        // Adiciona um ícone de edição e um botão de exclusão para cada cidade
-                        echo "<tr>";
-                        echo "<td>$cidade</td>";
-                        echo "<td>$populacao</td>";
-                        echo "<td>";
-                        echo "<a href='edit.php?cidade=$cidade' class='btn btn-warning btn-sm'>📝Editar<i class='bi bi-pencil'></i></a>";
-                        echo "<a href='../atividade-2/scripts/excluir.php?cidade=$cidade' class='btn btn-danger btn-sm'><i class='bi bi-trash'>❌Excluir</i></a>";
-                        echo "</td>";
-                        echo "</tr>";
-                    }
-                    ?>
+    // Adiciona um ícone de edição e um botão de exclusão para cada cidade
+    echo '<tr>';
+    echo "<td>$cidade</td>";
+    echo "<td>$populacao</td>";
+    echo '<td>';
+    echo "<a href='edit.php?cidade=$cidade' class='btn btn-warning btn-sm'>📝Editar<i class='bi bi-pencil'></i></a>";
+    echo "<a href='../atividade-2/scripts/excluir.php?cidade=$cidade' class='btn btn-danger btn-sm'><i class='bi bi-trash'>❌Excluir</i></a>";
+    echo '</td>';
+    echo '</tr>';
+}
+?>
                     </tbody>
                 </table>
             </div>
@@ -101,7 +102,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset
         </div>
         <?php
     }
-    ?>
+?>
 
     <!-- Formulário de Inserção -->
     <div class="container mt-3">

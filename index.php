@@ -7,6 +7,7 @@ include '../atividade-2/includes/conexao.php'; // Inclui o arquivo de conexão a
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../atividade-2/imagens/favicon.ico" type="image/x-icon">
 
   <link rel="stylesheet" href="../atividade-2/css/style.css">
 
