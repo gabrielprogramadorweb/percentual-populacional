@@ -1,5 +1,5 @@
 <?php
-include 'include.php';
+include 'conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,32 +16,17 @@ include 'include.php';
 </head>
 <body >
 <div class="content">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="../atividade-2/index.php">Percentual Populacional</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-          <a class="nav-link" href="../atividade-2/index.php">Gráfico de colunas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="../atividade-2/pizza.php">Gráfico pizza</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
+  <!-- Barra de navegação aqui -->
+<?php
+include 'nav.php';
+?>
   <div class="container mt-5 ">
   <div class="row">
     <div class="col-md-6">
       <div id="columnchart_values" style="width: 100%; height: 400px;"></div>
     </div>
     <div class="col-md-6">
-      <h2 class="mb-4">Tabela de Percentual de População</h2>
+      <h2 class="mb-4">Tabela de Percentual de População de Acordo com <a href="https://cidades.ibge.gov.br/" target="_blank">IBGE</a></h2>
       <table class="table">
         <thead>
           <tr>
@@ -120,6 +105,7 @@ include 'include.php';
   }
 </script>
 </div>
+
 <?php include 'footer.php'; ?>
 </body>
 </html>
