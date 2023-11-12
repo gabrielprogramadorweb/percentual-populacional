@@ -1,5 +1,5 @@
 <?php
-include 'conexao.php';
+include '../atividade-2/includes/conexao.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@ include 'conexao.php';
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../atividade-2/css/style.css">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -18,7 +18,7 @@ include 'conexao.php';
 <div class="content">
   <!-- Barra de navegação aqui -->
 <?php
-include 'nav.php';
+include '../atividade-2/includes/nav.php';
 ?>
   <div class="container mt-5 ">
   <div class="row">
@@ -106,6 +106,6 @@ include 'nav.php';
 </script>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include '../atividade-2/includes/footer.php'; ?>
 </body>
 </html>

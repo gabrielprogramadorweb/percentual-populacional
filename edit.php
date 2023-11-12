@@ -1,5 +1,5 @@
 <?php
-include 'conexao.php';
+include '../atividade-2/includes/conexao.php';
 
 // Verifica se o formulário de edição foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["cidade"])) {
@@ -30,57 +30,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-          crossorigin="anonymous">
-
+    <link rel="stylesheet" href="../atividade-2/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.19.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Gráficos Ricardo Milbrath</title>
 </head>
 <body>
 <div class="content">
     <!-- Barra de navegação aqui -->
-    <?php
-    include 'nav.php';
-    ?>
+    <?php include '../atividade-2/includes/nav.php'; ?>
     <div class="container mt-5 ">
         <div class="row">
             <!-- ... (código existente) ... -->
             <div class="col-md-6">
-    <h2 class="mb-4">Tabela de Percentual de População</h2>
-    <h6 class="mb-4 link">&nbsp; Atualizar dados conforme informações no portal <a href="https://cidades.ibge.gov.br/" target="_blank">IBGE</a></h6>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Cidade</th>
-            <th scope="col">População</th>
-            <th scope="col">Ações</th>
-        </tr>
-        </thead>
-        <tbody>
-        <?php
-        $sql = "SELECT * FROM dados ORDER BY populacao DESC";
-        $busca = mysqli_query($conexao, $sql);
+                <h2 class="mb-4">Tabela de Percentual de População</h2>
+                <h6 class="mb-4 link">&nbsp; Atualizar dados conforme informações no portal <a href="https://cidades.ibge.gov.br/" target="_blank">IBGE</a></h6>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Cidade</th>
+                        <th scope="col">População</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $sql = "SELECT * FROM dados ORDER BY populacao DESC";
+                    $busca = mysqli_query($conexao, $sql);
 
-        while ($dados = mysqli_fetch_array($busca)) {
-            $cidade = $dados['cidade'];
-            $populacao = number_format($dados['populacao'], 0, '', '.');
+                    while ($dados = mysqli_fetch_array($busca)) {
+                        $cidade = $dados['cidade'];
+                        $populacao = number_format($dados['populacao'], 0, '', '.');
 
-            // Adiciona um ícone de edição e um botão de exclusão para cada cidade
-            echo "<tr>";
-            echo "<td>$cidade</td>";
-            echo "<td>$populacao</td>";
-            echo "<td>";
-            echo "<a href='edit.php?cidade=$cidade' class='btn btn-warning btn-sm'><i class='bi bi-pencil'></i> Editar</a>";
-            echo " <a href='excluir.php?cidade=$cidade' class='btn btn-danger btn-sm'><i class='bi bi-trash'></i> Excluir</a>";
-            echo "</td>";
-            echo "</tr>";
-        }
-        ?>
-        </tbody>
-    </table>
-</div>
+                        // Adiciona um ícone de edição e um botão de exclusão para cada cidade
+                        echo "<tr>";
+                        echo "<td>$cidade</td>";
+                        echo "<td>$populacao</td>";
+                        echo "<td>";
+                        echo "<a href='edit.php?cidade=$cidade' class='btn btn-warning btn-sm'>📝Editar<i class='bi bi-pencil'></i></a>";
+                        echo "<a href='../atividade-2/scripts/excluir.php?cidade=$cidade' class='btn btn-danger btn-sm'><i class='bi bi-trash'>❌Excluir</i></a>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
@@ -125,6 +120,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["novaCidade"]) && isset
     </div>
 
 </div>
-<?php include 'footer.php'; ?>
+<?php include '../atividade-2/includes/footer.php'; ?>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-pzjw8f+ua/CgoVz5aXzQ1ZXK7hjk+P5n9xLSoq60Gf9GPIqE2WO5g6KcaNi2DQT6" crossorigin="anonymous"></script>
+
 </body>
 </html>
