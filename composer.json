@@ -1,0 +1,15 @@
+{
+    "name": "castr/atividade-2",
+    "autoload": {
+        "psr-4": {
+            "Castr\\Atividade2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Gabriel Castro",
+            "email": "gabriel.programador.ads@gmail.com"
+        }
+    ],
+    "require": {}
+}
