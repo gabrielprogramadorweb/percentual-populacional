@@ -71,7 +71,7 @@ while ($dados = mysqli_fetch_array($busca)) {
       var data = google.visualization.arrayToDataTable([
         ["Cidade", "População", { role: "style" } ],
         <?php
-        $sql = 'SELECT * FROM dados';
+        $$sql = 'SELECT * FROM dados ORDER BY populacao DESC';
 $busca = mysqli_query($conexao, $sql);
 
 while ($dados = mysqli_fetch_array($busca)) {
@@ -79,7 +79,7 @@ while ($dados = mysqli_fetch_array($busca)) {
     $populacao = $dados['populacao'];
 
     // Define intervalos e cores com base na população
-    $cor = ($populacao < 5000000) ? '#ffd432' : (($populacao < 10000000) ? '#ff5733' : '#335eff');
+    $cor = ($populacao < 5000000) ? '#ff5733' : (($populacao < 10000000) ? '#335eff' : '#00ff00');
     ?>
           ["<?php echo $cidade; ?>", <?php echo $populacao; ?>, "<?php echo $cor; ?>"],
         <?php } ?>
